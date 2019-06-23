@@ -1,0 +1,17 @@
+name: slirunner
+version: 0.0.2
+commit_hash: e2f253b
+uncommitted_changes: true
+jobs:
+- name: slirunner
+  version: 723f119beacbef5822d23abe269983590f3ba44dc6ed313b3e1921a912a0cb5c
+  fingerprint: 723f119beacbef5822d23abe269983590f3ba44dc6ed313b3e1921a912a0cb5c
+  sha1: sha256:4528cc88b9b421dea11c7d786a617bba1ca823da9d4737db4693278727cbd3d8
+  packages:
+  - slirunner
+packages:
+- name: slirunner
+  version: 6aa26fa1700e128de6176a7830c832bf621218d979a0c372d3d6546d14c2da02
+  fingerprint: 6aa26fa1700e128de6176a7830c832bf621218d979a0c372d3d6546d14c2da02
+  sha1: sha256:d0a4d49def8bab97ae9b401e4405167a303331ed267c4b939ed8b3e17b1b2f24
+  dependencies: []
