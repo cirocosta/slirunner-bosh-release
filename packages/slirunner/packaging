@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+tar xvzf ./slirunner.tgz -C ${BOSH_INSTALL_TARGET}

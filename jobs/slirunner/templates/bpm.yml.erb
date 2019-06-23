@@ -1,0 +1,26 @@
+---
+processes:
+  - name: slirunner
+    executable: /var/vcap/packages/slirunner/slirunner
+    ephemeral_disk: true
+    args: [ start ]
+    env:
+      SR_TARGET: target
+
+      SR_USERNAME: <%= p('username') %>
+      SR_PASSWORD: <%= p('password') %>
+      SR_CONCOURSE_URL: <%= p('concourse-url') %>
+      
+      <% if_p('prefix') do |value| %>
+      SR_PREFIX: <%= value %>
+      <% end %>
+
+      <% if_p('prometheus.address') do |value| %>
+      SR_PROMETHEUS_ADDRESS: <%= value %>
+      <% end %>
+
+      <% if_p('prometheus.path') do |value| %>
+      SR_PROMETHEUS_PATH: <%= value %>
+      <% end %>
+
+      PATH: /var/vcap/packages/slirunner:/usr/local/sbin:/usr/local/bin/:/usr/bin:/bin

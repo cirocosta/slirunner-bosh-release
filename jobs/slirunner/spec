@@ -1,0 +1,48 @@
+# vim: ft=yaml
+---
+
+name: slirunner
+
+description: |
+  Probes your Concourse installation, generating Service Level Indicators (SLIs)
+
+templates:
+  bpm.yml.erb: config/bpm.yml
+
+packages:
+  - slirunner
+
+properties:
+  username:
+    env: SR_USERNAME
+    description: |
+      Username of a Concourse local user (required).
+
+  password:
+    env: SR_PASSWORD
+    description: |
+      Password of the Concourse local user (required).
+
+  concourse-url:
+    env: SR_CONCOURSE_URL
+    description: |
+      URL of the Concourse instance to monitor (required).
+    example: "https://my-concourse.ci"
+
+  prefix:
+    env: SR_PREFIX
+    description: |
+      Prefix used in pipelines created by probes
+    example: "my-prefix-"
+
+  prometheus.address:
+    env: SR_PROMETHEUS_ADDRESS
+    description: |
+      Address to listen for prometheus scrapes
+    example: ":9001"
+
+  prometheus.path:
+    env: SR_PROMETHEUS_PATH
+    description: |
+      Path to serve Prometheus metrics
+    example: "/"

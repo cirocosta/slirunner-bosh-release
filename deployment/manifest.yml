@@ -1,0 +1,41 @@
+name: ((deployment_name))
+
+
+releases:
+  - name: slirunner
+    version: latest
+  - name: bpm
+    version: latest
+
+
+
+instance_groups:
+  - name: slirunner
+    vm_type: ((vm_type))
+    azs: [z1]
+    networks: [{name: ((network_name))}]
+    stemcell: xenial
+    instances: 1
+    jobs:
+      - release: bpm
+        name: bpm
+      - name: slirunner
+        release: slirunner
+        properties:
+          prefix: "test-"
+          username: ((username))
+          password: ((password))
+          concourse-url: ((concourse-url))
+
+
+update:
+  canaries: 1
+  max_in_flight: 3
+  canary_watch_time: 15000-30000
+  update_watch_time: 15000-300000
+
+
+stemcells:
+  - alias: xenial
+    os: ubuntu-xenial
+    version: latest

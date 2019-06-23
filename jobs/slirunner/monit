@@ -1,0 +1,5 @@
+check process slirunner
+  with pidfile /var/vcap/sys/run/bpm/slirunner/slirunner.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start slirunner"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop slirunner"
+  group vcap

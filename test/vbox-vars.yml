@@ -1,0 +1,3 @@
+deployment_name: test
+vm_type: test
+network_name: test

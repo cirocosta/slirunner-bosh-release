@@ -1,0 +1,7 @@
+---
+name: slirunner
+
+dependencies: []
+
+files:
+  - "slirunner.tgz"
