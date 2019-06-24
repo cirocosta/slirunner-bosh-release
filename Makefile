@@ -7,6 +7,7 @@ release:
 	bosh create-release \
 		--tarball $(RELEASE) \
 		--force
+	bosh upload-release $(TARBALL)
 
 
 final-release:
@@ -16,10 +17,10 @@ final-release:
 		--name slirunner \
 		--tarball $(RELEASE) \
 		--version $(VERSION)
+	bosh upload-release $(TARBALL)
 
 
 deploy: release
-	bosh upload-release $(TARBALL)
 	bosh deploy \
 		--deployment=test \
 		--vars-file=./test/vbox-vars.yml \
@@ -27,7 +28,6 @@ deploy: release
 		./deployment/manifest.yml $(BOSH_DEPLOY_FLAGS)
 
 
-get-blobs:
-	mkdir -p blobs
+get-slirunner:
 	curl -SL https://github.com/cirocosta/slirunner/releases/download/v0.1.0/slirunner.tgz \
-		-o blobs/slirunner.tgz
+		-o src/slirunner.tgz
